@@ -1,47 +1,44 @@
-# Práctica: el botón deshabilitado
+# Práctica JavaScript: dos solicitudes de pausa
 
 **By: DiegoMat**
 
 ## Objetivo
 
-Comprobar que `BotonPausa` no llama a `onRecordar` cuando está deshabilitado y se intenta hacer clic.
+Comprobar que dos ejecuciones de `recordarPausa`, con 60 y 61 minutos, solicitan dos avisos con el mensaje correcto.
 
-Realicen esta práctica después de los ejemplos guiados de la clase.
+Realicen esta práctica después de escribir los tres casos guiados de 59, 60 y 61 minutos.
 
-## Tiempo y punto de partida
+## Tiempo
 
-8 minutos para intentar, 4 de revisión y 3 para ejecutar y corregir.
-
-Al llegar a esta parte, ustedes ya habrán completado el componente con las props `onRecordar` y `disabled`, y los tests del nombre del botón y del clic disponible. Las herramientas de testing ya vienen configuradas.
+8 minutos para intentar, 4 para revisar y 3 para ejecutar y corregir.
 
 ## Trabajo
 
-En `src/components/BotonPausa.test.jsx`, agreguen un tercer test:
+Agreguen un cuarto caso en `src/lib/recordarPausa.test.js`:
 
-1. Escriban un nombre que describa la conducta.
-2. Preparen una instancia nueva de userEvent y un mock nuevo.
-3. Rendericen BotonPausa con el callback sustituto y disabled activado.
-4. Busquen el botón por su rol y nombre.
-5. Comprueben que su propiedad disabled es true.
-6. Intenten hacer clic y esperen que termine la interacción.
-7. Comprueben que el mock no fue llamado.
+1. Escriban un nombre que describa las dos solicitudes.
+2. Preparen **un solo mock nuevo para este test**.
+3. Ejecuten recordarPausa con 60 y luego con 61, pasando el mismo mock.
+4. Comprueben exactamente dos llamadas.
+5. Comparen con `toEqual` el historial completo: dos llamadas, cada una con **Hora de una pausa** como único argumento.
+6. Ejecuten `npm run test:js`: deben pasar **4 tests**.
 
-Ejecuten `npm run test:componente`: deben pasar **3 tests**. Luego `npm test`: deben pasar **8**, contando los dos tests de ejemplo iniciales.
+En el proyecto inicial, después de completar solo JavaScript, `npm test` debe mostrar **6 tests**: cuatro de la regla y dos ejemplos iniciales. No necesitan implementar Next.js para cumplir el objetivo de hoy.
 
 ## Expliquen su resultado
 
-- ¿Qué función sustituyeron con el mock?
-- ¿Qué código se ejecutó realmente?
-- ¿Qué interacción intentaron?
-- ¿Por qué cero llamadas es el resultado correcto?
-- ¿Por qué un botón gris no demuestra por sí solo que está deshabilitado?
+- ¿Qué función quedó real y cuál sustituyeron?
+- ¿Por qué aquí conservan el mismo mock para las dos ejecuciones?
+- ¿Por qué usan toEqual para una lista?
+- ¿Qué comprueban además de la cantidad?
+- ¿Qué parte de una notificación real no demuestra este test?
 
 ## Criterio de terminado
 
-El nuevo test pasa, los anteriores siguen pasando y ustedes pueden explicar sus comprobaciones. No borren los casos anteriores ni cambien su resultado esperado para ocultar un fallo.
+Los cuatro casos pasan y pueden explicar sus comprobaciones. No borren los casos anteriores ni cambien lo esperado para ocultar un fallo.
 
-## Pista
+## Ampliación opcional
 
-El caso del botón disponible ya tiene la estructura. Cambia una prop y cambia la afirmación sobre las llamadas.
+Si queda tiempo, se prueban el nombre y el clic del componente Next.js. Entonces la suite del estudiante llega a **8 tests**. La [práctica del botón deshabilitado](PRACTICA-NEXT.md) queda como ejercicio posterior y lleva la suite completa a **9**.
 
-[Volver a las instrucciones del proyecto](README.md)
+[Volver al proyecto](README.md)

@@ -2,7 +2,7 @@
 
 **By: DiegoMat** · [EliasMatDev](https://github.com/EliasMatDev)
 
-Proyecto de inicio para aprender a registrar llamadas con un mock, probar una función de JavaScript y comprobar la interacción de un componente cliente de Next.js.
+Proyecto de inicio para aprender a registrar llamadas con un mock, probar una función de JavaScript y practicar matchers más allá de toBe. El componente cliente de Next.js es una ampliación opcional.
 
 Los ejercicios están pendientes a propósito. La configuración, la página y los estilos están preparados para concentrarse en las pruebas.
 
@@ -59,17 +59,19 @@ Los tests se ejecutan sin mantener encendido el servidor de Next.js. Si quieren 
 - `expect` y `toBe` siguen disponibles. Ahora añadiremos un mock para comprobar cuántas llamadas recibió y con qué mensaje.
 - `npm test` ejecuta la suite una vez. Para que quede observando los cambios, usen `npm run test:watch`.
 
-### Pasos de trabajo
+### Pasos principales: JavaScript
 
-1. Leer `tests/mock-demo.test.js` y ejecutar `npm run test:mock`.
-2. Completar `src/lib/recordarPausa.js`.
-3. Crear `src/lib/recordarPausa.test.js` con los casos de 59, 60 y 61 minutos.
-4. Completar `src/components/BotonPausa.jsx`.
-5. Crear `src/components/BotonPausa.test.jsx` para comprobar el texto y un clic.
-6. Realizar [la práctica del botón deshabilitado](PRACTICA.md).
-7. Ejecutar `npm test`: al terminar deben pasar **8 tests** en total.
+1. Leer tests/mock-demo.test.js: registrar llamadas y controlar una respuesta con mockReturnValue.
+2. Completar src/lib/recordarPausa.js.
+3. Crear src/lib/recordarPausa.test.js con los tres casos guiados de 59, 60 y 61 minutos.
+4. Realizar [la práctica JavaScript de dos solicitudes](PRACTICA.md): agregar un cuarto caso y comparar cantidad e historial con toEqual.
+5. Ejecutar npm test: al cerrar esta parte deben pasar **6 tests** (4 propios + 2 ejemplos).
 
-No ejecuten `test:js` ni `test:componente` antes de crear sus archivos de pruebas.
+### Ampliación opcional: Next.js
+
+Solo después del cierre JavaScript y si queda tiempo, completar BotonPausa y sus tests de texto y clic: la suite llega a **8**. El [botón deshabilitado](PRACTICA-NEXT.md) queda como práctica posterior y lleva el total a **9**.
+
+No ejecuten test:js ni test:componente antes de crear sus archivos de pruebas. No hace falta implementar Next.js para cumplir el objetivo principal de hoy.
 
 ## Regla del ejercicio
 
