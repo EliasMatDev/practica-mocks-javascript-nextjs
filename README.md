@@ -1,0 +1,100 @@
+# Práctica inicial: mocks con JavaScript y tests en Next.js
+
+**By: DiegoMat** · [EliasMatDev](https://github.com/EliasMatDev)
+
+Proyecto de inicio para aprender a registrar llamadas con un mock, probar una función de JavaScript y comprobar la interacción de un componente cliente de Next.js.
+
+Los ejercicios están pendientes a propósito. La configuración, la página y los estilos están preparados para concentrarse en las pruebas.
+
+## Requisitos
+
+- Visual Studio Code o un editor equivalente.
+- Node.js 24 con npm. También se admite Node 22 desde la versión 22.12, o Node 26 y superiores.
+- Internet para descargar el proyecto e instalar las dependencias.
+
+No necesitan instalar Next.js ni Vitest de forma global, ni agregar extensiones al editor.
+
+## Preparar antes de clase
+
+1. En este repositorio, seleccionen **Code → Download ZIP**.
+2. Descompriman el ZIP.
+3. Abran en VS Code la carpeta que contiene `package.json`.
+4. Abran **Terminal → Nueva terminal** y ejecuten:
+
+```bash
+node --version
+npm --version
+npm ci
+npm test
+```
+
+Deben pasar **2 tests de ejemplo**. `npm ci` instala las versiones fijadas en `package-lock.json`, incluidas Next.js, React, Vitest y las herramientas de testing.
+
+Si ya usan Git, pueden descargarlo con:
+
+```bash
+git clone https://github.com/EliasMatDev/practica-mocks-javascript-nextjs.git
+cd practica-mocks-javascript-nextjs
+npm ci
+npm test
+```
+
+## Ver la página
+
+```bash
+npm run dev -- --hostname 127.0.0.1 --port 3128
+```
+
+Abran [http://127.0.0.1:3128](http://127.0.0.1:3128). Al inicio, el botón todavía no cambia el mensaje: se conectará durante la clase. Para detener el servidor, usen **Ctrl + C**.
+
+Los tests se ejecutan sin mantener encendido el servidor de Next.js. Si quieren usar ambos a la vez, abran una segunda terminal.
+
+## Recorrido de la clase
+
+1. Leer `tests/mock-demo.test.js` y ejecutar `npm run test:mock`.
+2. Completar `src/lib/recordarPausa.js`.
+3. Crear `src/lib/recordarPausa.test.js` con los casos de 59, 60 y 61 minutos.
+4. Completar `src/components/BotonPausa.jsx`.
+5. Crear `src/components/BotonPausa.test.jsx` para comprobar el texto y un clic.
+6. Realizar [la práctica del botón deshabilitado](PRACTICA.md).
+7. Ejecutar `npm test`: al terminar deben pasar **8 tests** en total.
+
+No ejecuten `test:js` ni `test:componente` antes de crear sus archivos de pruebas.
+
+## Regla del ejercicio
+
+La función `recordarPausa` recibe minutos numéricos válidos y un callback:
+
+- Antes de 60 minutos, no pide el aviso.
+- Desde 60 minutos, incluido el 60, llama una vez al callback con **Hora de una pausa**.
+
+El componente muestra **Recordar pausa**. Al hacer clic, debe llamar una vez a `onRecordar` con ese mensaje. Cuando está deshabilitado, no debe llamarlo.
+
+## Comandos
+
+| Comando                   | Uso                                       |
+| ------------------------- | ----------------------------------------- |
+| `npm test`                | Todos los tests una vez                   |
+| `npm run test:watch`      | Tests al guardar cambios                  |
+| `npm run test:mock`       | Demostración del mock                     |
+| `npm run test:entorno`    | Comprobar JavaScript y JSX                |
+| `npm run test:js`         | Tests de la función, después de crearlos  |
+| `npm run test:componente` | Tests del componente, después de crearlos |
+| `npm run lint`            | Revisar el código                         |
+| `npm run build`           | Generar la versión de producción          |
+
+## Archivos que trabajarán
+
+```text
+src/
+├── lib/
+│   ├── recordarPausa.js       ← completar
+│   └── recordarPausa.test.js  ← crear
+└── components/
+    ├── BotonPausa.jsx         ← completar
+    └── BotonPausa.test.jsx    ← crear
+```
+
+`node_modules` y `.next` se generan localmente y no forman parte del repositorio.
+
+**By: DiegoMat**
