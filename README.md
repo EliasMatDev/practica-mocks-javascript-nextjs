@@ -51,6 +51,16 @@ Los tests se ejecutan sin mantener encendido el servidor de Next.js. Si quieren 
 
 ## Recorrido de la clase
 
+### Conexión con los tests básicos
+
+- Conservamos las fases **preparar → actuar → afirmar**.
+- `test` e `it` son dos nombres para declarar un caso en Vitest. Si ya usaron `it`, reconocerán la misma estructura en estos ejemplos.
+- `describe` permite agrupar casos; no es obligatorio en nuestros ejemplos cortos.
+- `expect` y `toBe` siguen disponibles. Ahora añadiremos un mock para comprobar cuántas llamadas recibió y con qué mensaje.
+- `npm test` ejecuta la suite una vez. Para que quede observando los cambios, usen `npm run test:watch`.
+
+### Pasos de trabajo
+
 1. Leer `tests/mock-demo.test.js` y ejecutar `npm run test:mock`.
 2. Completar `src/lib/recordarPausa.js`.
 3. Crear `src/lib/recordarPausa.test.js` con los casos de 59, 60 y 61 minutos.
